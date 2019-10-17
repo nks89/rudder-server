@@ -77,6 +77,19 @@ type JobT struct {
 	Parameters    json.RawMessage
 }
 
+/*
+TransformationErrorT is for storing transformation errors.
+*/
+type TransformationErrorT struct {
+	UUID         uuid.UUID
+	JobID        int64
+	SourceID     string
+	EventPayload json.RawMessage
+	Parameters   json.RawMessage
+	CreatedAt    time.Time
+	ExpireAt     time.Time
+}
+
 //The struct fields need to be exposed to JSON package
 type dataSetT struct {
 	JobTable       string `json:"job"`
